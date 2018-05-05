@@ -21,10 +21,8 @@ componentDidMount (){
         }
         
     search(e){
-
-        if (e.target.value !== '') { 
-
-          BooksAPI.search(e.target.value).then((ResultSearch) => {
+         if (e.target.value !== '') { 
+         BooksAPI.search(e.target.value).then((ResultSearch) => {
             if (!ResultSearch || ResultSearch.error) {
               this.setState({ ResultSearch: [] })
               return
@@ -42,7 +40,10 @@ componentDidMount (){
             });
             this.setState({ResultSearch});
         });
-    };
+    }
+    else {
+        this.setState({ResultSearch: []})
+    }
     }
     render() {
         return (
